@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Mapping API | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Industry · Computer Vision · Telkom Indonesia</p>
+    <h1>Face Mapping API</h1>
+    <p class="p-sub">Automating employee face recognition and attendance at Telkom Indonesia, 80% accuracy across 1,000 faces from messy real-world photos.</p>
+  </header>
+
+  <main class="p-body">
+
+    <h2>Problem</h2>
+    <p>
+      Telkom needed a system to map and recognise employee faces from various attendance photo
+      sources, including Zoom screenshots and on-site photos. The real-world dataset was messy:
+    </p>
+    <ul>
+      <li><strong>Varied formats:</strong> images came from virtual (Zoom) and direct (on-site) attendance with inconsistent naming and backgrounds.</li>
+      <li><strong>Labeling issues:</strong> many photos lacked proper filenames (no NIK or full name), making face-to-identity mapping difficult.</li>
+      <li><strong>Technical constraints:</strong> DLIB-based recognition hit memory limits, and inaccurate detections led to mismatches.</li>
+    </ul>
+
+    <h2>My Contribution</h2>
+    <h3>Implementation</h3>
+    <ul>
+      <li>Built a face mapping pipeline in Python with DLIB and OpenCV DNN for detection and recognition.</li>
+      <li>Fixed filename issues so every image had both a name and NIK for matching.</li>
+      <li>Overcame DLIB memory limits by switching to OpenCV DNN for more scalable detection.</li>
+      <li>Designed workflows for background removal and name mapping, raising detection accuracy even in noisy group photos.</li>
+      <li>Added fallback logic for problematic Zoom images, extracting the first detected face in a red background.</li>
+    </ul>
+
+    <img class="p-hero-img" src="../assets/img/face-train.png" alt="Zoom screenshot used for training, blurred for privacy" />
+    <p class="p-caption">Example of a Zoom screenshot used for training (blurred for privacy).</p>
+
+    <img class="p-hero-img" src="../assets/img/face.jpg" alt="Automated face detection and mapping on group attendance photos, blurred for privacy" />
+    <p class="p-caption">Automated face detection and mapping on group attendance photos (blurred for privacy).</p>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Delivered an automated face mapping API ready for internal use.</li>
+      <li>Increased recognition accuracy on Telkom's real-world dataset despite messy labels and inconsistent input.</li>
+      <li>Gained practical skills in troubleshooting, iterative solution design, and data cleaning for computer vision.</li>
+    </ul>
+
+    <h2>Key Learnings</h2>
+    <ul>
+      <li><strong>Requirement analysis:</strong> interpreted project specs directly from supervisor direction, adapting rapidly as requirements evolved.</li>
+      <li><strong>Technical adaptation:</strong> pivoted quickly between tools (DLIB, OpenCV DNN) to handle real-world constraints like memory and file formats.</li>
+      <li><strong>Collaboration:</strong> worked closely with the team and sought frequent feedback to stay aligned with the evolving vision.</li>
+    </ul>
+
+    <p class="p-quote">
+      "In real-world AI, adaptability matters more than perfection. The best models learn, just like we do."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

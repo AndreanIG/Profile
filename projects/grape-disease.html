@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grape Disease Classification | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Computer Vision · Deep Learning · Deployment</p>
+    <h1>Grape Disease Classification: VGG-16 + XGBoost</h1>
+    <p class="p-sub">A hybrid pipeline that pairs CNN feature extraction with a gradient-boosted tree classifier, wrapped in a simple Flask web app.</p>
+  </header>
+
+  <main class="p-body">
+
+    <img class="p-hero-img" src="../assets/img/grape.png" alt="Flask web app upload page for grape leaf prediction" />
+
+    <h2>Problem &amp; Dataset</h2>
+    <ul>
+      <li><strong>Task:</strong> classify an image into Healthy, Black Rot, Black Measles, or Leaf Blight.</li>
+      <li><strong>Source:</strong> derived from public plant-disease datasets (PlantVillage lineage), filtered to grape classes with a train/val/test split.</li>
+      <li><strong>Preprocessing:</strong> resize to 256x256 and use the framework's <code>preprocess_input</code> to match backbone expectations.</li>
+    </ul>
+
+    <h2>Approach</h2>
+    <ul>
+      <li><strong>Backbones:</strong> VGG-16 and ResNet50 used as frozen feature extractors with custom heads.</li>
+      <li><strong>Best model:</strong> VGG-16 features to a dense head, then the penultimate feature vector fed into <strong>XGBoost</strong> as the final classifier.</li>
+      <li><strong>Why XGBoost on deep features:</strong> tree ensembles separate non-linear boundaries efficiently with strong regularisation, which often generalises better than a fully-connected softmax head on small or medium datasets.</li>
+      <li><strong>Serving:</strong> a minimal Flask app lets users upload a leaf image and get a predicted class.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <table class="p-table">
+      <thead>
+        <tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ResNet50 (CNN)</td><td>0.9590</td><td>0.9597</td><td>0.9570</td></tr>
+        <tr><td>VGG-16 (CNN)</td><td>0.9199</td><td>0.9413</td><td>0.9201</td></tr>
+        <tr><td><strong>VGG-16 + XGBoost</strong></td><td><strong>0.9870</strong></td><td><strong>0.9857</strong></td><td><strong>0.9876</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="p-caption">All scores computed on the project's test split.</p>
+
+    <img class="p-hero-img" src="../assets/img/grape-result.png" alt="Flask app result page showing the predicted grape disease class" />
+    <p class="p-caption">Flask result page displaying the predicted disease class.</p>
+
+    <h2>Implementation Notes</h2>
+    <ul>
+      <li>256x256 input to the backbones; heads of Flatten to Dense for CNN-only variants.</li>
+      <li>For the hybrid, features are exported after the dense layers and then used to fit XGBoost.</li>
+      <li>L2 regularisation performed best for the XGBoost setup in our tests.</li>
+      <li>Monitor class balance and consider light augmentation (colour, flip) to avoid overfitting.</li>
+    </ul>
+
+    <h2>What I Learned</h2>
+    <ul>
+      <li>Hybrid models (deep features + tree ensembles) can outperform pure CNN heads on modest datasets.</li>
+      <li>Backbone choice matters, but the classifier head and regularisation design strongly influence final performance.</li>
+      <li>A simple Flask deployment is an effective way to communicate AI results to non-technical audiences.</li>
+    </ul>
+
+    <div class="p-stack">
+      <span>TensorFlow/Keras</span><span>VGG-16</span><span>ResNet50</span><span>XGBoost</span><span>Flask</span><span>NumPy/Pandas</span>
+    </div>
+
+    <p class="p-quote">
+      "Powerful AI doesn't always need complexity, just the right balance of features, logic, and clarity."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

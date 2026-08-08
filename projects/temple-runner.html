@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temple Runner | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Game Development · Unity · C# · Blender</p>
+    <h1>Temple Runner</h1>
+    <p class="p-sub">An endless-runner action game developed in Unity, complete with animated jungle terrain, character controllers, and collectible mechanics.</p>
+  </header>
+
+  <main class="p-body">
+
+    <h2>Game Overview</h2>
+    <p>
+      <strong>Temple Runner</strong> is a Unity-based endless runner where the player sprints
+      through a temple jungle environment, dodging obstacles, collecting gems, and chaining
+      momentum. It was built to explore the full game production pipeline, from 3D modelling in
+      Blender to gameplay systems in Unity.
+    </p>
+
+    <div class="p-img-grid">
+      <img src="../assets/img/game-dev.png" alt="Unity editor showing the Temple Runner scene with terrain and character" />
+      <img src="../assets/img/game-menu.png" alt="Temple Runner main menu screen" />
+    </div>
+    <p class="p-caption">Unity editor scene setup and the main menu.</p>
+
+    <img class="p-hero-img" src="../assets/img/game-terrain.png" alt="Animated jungle terrain in Temple Runner" />
+    <p class="p-caption">The animated jungle terrain the player runs through.</p>
+
+    <h2>Systems Built</h2>
+    <ul>
+      <li><strong>Player controller:</strong> run, jump, and lane-switching mechanics with responsive input.</li>
+      <li><strong>Terrain generation:</strong> procedurally placed jungle segments for an endless run.</li>
+      <li><strong>Obstacles &amp; collectibles:</strong> collision handling, scoring, and pickup effects.</li>
+      <li><strong>UI &amp; menus:</strong> main menu, HUD, and game-over flow.</li>
+      <li><strong>3D assets:</strong> terrain and props modelled and animated in Blender, integrated into Unity.</li>
+    </ul>
+
+    <h2>Tech Stack</h2>
+    <div class="p-stack">
+      <span>Unity</span><span>C#</span><span>Blender</span><span>Game Physics</span>
+    </div>
+
+    <h2>Key Learnings</h2>
+    <ul>
+      <li>Bridging Blender assets into Unity taught me the importance of clean geometry, pivots, and scale conventions.</li>
+      <li>Endless-runner feel comes from tuning, not features; speed curves and camera follow make the game.</li>
+      <li>Separating gameplay logic from presentation (MonoBehaviour organisation) keeps a growing game manageable.</li>
+    </ul>
+
+    <p class="p-quote">
+      "Games teach the hardest software lesson: fun is a feature you must iterate toward."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

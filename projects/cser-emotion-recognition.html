@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSER: Context-Sensitive Emotion Recognition | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Research · IEEE Transactions on Multimedia · Under review</p>
+    <h1>CSER: Context-Sensitive Emotion Recognition Framework</h1>
+    <p class="p-sub">A multimodal system that fuses Vision Transformers and Vision-Language Models to understand human emotion through context, not just faces.</p>
+  </header>
+
+  <main class="p-body">
+
+    <h2>Overview</h2>
+    <p>
+      Most emotion recognition models rely on a single modality such as facial expressions or
+      voice. But human emotion is shaped by context: the surrounding scene, body posture, and
+      situation all matter. <strong>CSER</strong> closes that gap by making emotion recognition
+      context-aware, using visual and textual features together.
+    </p>
+    <p>
+      This research was written with Dr. Thuseethan Selvarajah, Prof. Sutharshan Rajasegarar,
+      and Prof. John Yearwood, and submitted to <strong>IEEE Transactions on Multimedia</strong>.
+    </p>
+
+    <h2>Technical Summary</h2>
+    <p>CSER combines three ViT-based visual learners for <strong>face</strong>, <strong>body</strong>, and <strong>scene</strong>, plus textual embeddings from <strong>LLaVA</strong> and <strong>BLIP</strong>. All modalities are projected into a shared latent space and fused with multi-head and self-attention mechanisms.</p>
+    <ul>
+      <li>Facial region analysis with a Vision Transformer.</li>
+      <li>Body posture and scene context with separate ViT learners.</li>
+      <li>Textual scene descriptions generated and embedded by LLaVA and BLIP.</li>
+      <li>Cross-modal fusion in a shared latent space for final emotion prediction.</li>
+    </ul>
+
+    <h3>Results</h3>
+    <table class="p-table">
+      <thead>
+        <tr><th>Dataset</th><th>Metric</th><th>Score</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>EMOTIC</td><td>mAP</td><td>40.49%</td></tr>
+        <tr><td>HECO</td><td>mAP</td><td>54.28%</td></tr>
+        <tr><td>Subtle emotions</td><td>sadness, fear, embarrassment</td><td>Major gains vs. SOTA</td></tr>
+      </tbody>
+    </table>
+    <p>The framework outperformed existing state-of-the-art methods on both datasets, with the largest improvements in subtle emotions like sadness, fear, and embarrassment.</p>
+
+    <h2>The Hard Part</h2>
+    <ul>
+      <li><strong>Dataset scarcity:</strong> group and context-sensitive emotion datasets were nearly impossible to find. EMOTIC and HECO were the only usable options, both with fragmented labels and inconsistent annotations that required remapping.</li>
+      <li><strong>Data quality:</strong> many images had occluded faces, low light, or incomplete subjects. I built fallback logic that replaced missing faces with zero matrices to keep the training pipeline stable.</li>
+      <li><strong>Hardware constraints:</strong> all experiments started on a GTX 1660 Ti, forcing constant trade-offs between batch size and learning rate. I used Deakin's research GPU infrastructure and Hugging Face compute credits to run full-scale experiments.</li>
+      <li><strong>VLM integration:</strong> LLaVA and BLIP produced embeddings with incompatible dimensions and token structures. Aligning and projecting them into one feature space was one of the hardest implementation challenges.</li>
+    </ul>
+
+    <h2>Reflection</h2>
+    <p>
+      As the youngest member of the author list, I handled most of the experimental setup,
+      ablation design, and manuscript drafting. This taught me to think beyond implementation:
+      questioning design decisions, justifying model behaviour, and communicating results
+      professionally. Scientific progress is not just about accuracy, it is about the discipline
+      to keep iterating when nothing seems to work.
+    </p>
+
+    <h3>Citation</h3>
+    <p>
+      Ignasius, A., Selvarajah, T., Rajasegarar, S., &amp; Yearwood, J. (2025).
+      <em>CSER: Context-Sensitive Emotion Recognition Framework using Visual and Textual Features.</em>
+      IEEE Transactions on Multimedia (Under Review).
+    </p>
+
+    <div class="p-stack">
+      <span>Emotion Recognition</span><span>Multimodal Learning</span><span>Vision Transformer</span><span>Vision-Language Models</span><span>Affective Computing</span>
+    </div>
+
+    <p class="p-quote">
+      "CSER reminded me that innovation often begins where comfort ends, when you keep refining
+      ideas long after the models stop cooperating."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

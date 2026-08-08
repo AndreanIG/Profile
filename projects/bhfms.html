@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BHFMS: Boarding House Finder &amp; Management System | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Bachelor's Thesis · Full-stack · VILT Stack</p>
+    <h1>BHFMS: Boarding House Finder &amp; Management System</h1>
+    <p class="p-sub">A full-featured web marketplace and operations hub for Indonesian boarding houses (kos-kosan), built on the VILT stack with distance-aware search and fair Bayesian ratings.</p>
+  </header>
+
+  <main class="p-body">
+
+    <img class="p-hero-img" src="../assets/img/bhfms.png" alt="BHFMS logo and application interface" />
+    <p class="p-caption">BHFMS is a marketplace plus operations dashboard for tenants, owners, and admins.</p>
+
+    <h2>Demo</h2>
+    <p>Watch the project demo on YouTube:</p>
+    <p><a class="p-btn-primary" href="https://youtu.be/u0tEqIIhDS0" target="_blank" rel="noopener">Watch on YouTube</a></p>
+
+    <h2>Background &amp; Problem</h2>
+    <p>
+      Jakarta's growing urbanization and high housing costs make boarding houses essential for
+      students and workers. Existing platforms only focus on listing properties; they lack
+      operations features (payment management, complaints, inventory), verified information, and
+      seamless communication between tenants and landlords.
+    </p>
+    <p>
+      BHFMS fills this gap by unifying search, management, and communications in a single
+      VILT-stack web platform. It was developed with Aditya Winata and Gardion Philipus Saltana
+      at Bina Nusantara University, supervised by Pualam Dipa Nusantara, S.Kom., M.Kom.
+    </p>
+
+    <h2>Project Overview</h2>
+    <ul>
+      <li><strong>Centralized discovery:</strong> search and filter kos-kosan by location, price, facilities, and more.</li>
+      <li><strong>Verified operations:</strong> owners and managers manage tenants, payments, complaints, and property inventories.</li>
+      <li><strong>Effortless communication:</strong> tenants chat with owners/managers, upload payment proofs, and raise complaints; admins ensure trust and moderation.</li>
+    </ul>
+    <p>Role-based access ensures each user group (tenant, owner/manager, admin) has the right tools.</p>
+
+    <h3>Features by Role</h3>
+    <ul>
+      <li><strong>Tenant:</strong> search, distance filter, rich listings, wishlist, reviews, chat, complaints, payment-proof uploads.</li>
+      <li><strong>Owner/Manager:</strong> dashboards for properties, tenants, payments, inventory, complaints, and chat.</li>
+      <li><strong>Admin:</strong> listing verification, transaction oversight, moderation, pre-publish approvals.</li>
+    </ul>
+
+    <h2>Smart Search: Haversine Formula</h2>
+    <p>
+      BHFMS ranks boarding houses by true real-world distance to the user's target location using
+      the great-circle (Haversine) distance, with pre-filtering by bounding box for performance.
+    </p>
+    <pre class="p-code">
+$lat = (float) request('lat');
+$lon = (float) request('lon');
+$R   = 6371; // km
+
+$haversine = "(
+    $R * 2 * ASIN(
+        SQRT(
+            POW(SIN(RADIANS(properties.latitude  - ?) / 2), 2) +
+            COS(RADIANS(?)) * COS(RADIANS(properties.latitude)) *
+            POW(SIN(RADIANS(properties.longitude - ?) / 2), 2)
+        )
+    )
+)";
+
+$properties = Property::query()
+    ->select('properties.*')
+    ->selectRaw("$haversine AS distance_km", [$lat, $lat, $lon])
+    ->orderBy('distance_km')
+    ->paginate(20);</pre>
+    <p class="p-caption">Laravel/SQL implementation of the Haversine distance search.</p>
+
+    <h2>Bayesian Rating: Fair Rankings</h2>
+    <p>
+      To avoid a single 5-star review boosting a brand-new listing to the top, BHFMS ranks
+      properties with a Bayesian average instead of a plain mean:
+    </p>
+    <p class="p-formula">bayesian_rating = (v / (v + m)) * R + (m / (v + m)) * C</p>
+    <ul>
+      <li><strong>R</strong>: average rating for the property</li>
+      <li><strong>v</strong>: number of reviews for the property</li>
+      <li><strong>m</strong>: minimum reviews required for confidence (e.g., 5 or 10)</li>
+      <li><strong>C</strong>: mean rating across all properties</li>
+    </ul>
+    <p>
+      Properties with few ratings are pulled toward the global mean C; as reviews grow, the score
+      reflects the property's real reputation. This prevents new or manipulated listings from
+      unfairly topping search results.
+    </p>
+
+    <h2>Tech Stack</h2>
+    <div class="p-stack">
+      <span>Vue.js</span><span>Tailwind CSS</span><span>Inertia.js</span><span>Laravel</span><span>Pusher / Laravel Echo</span><span>SQL</span><span>AWS Lightsail</span><span>NGINX Unit</span>
+    </div>
+
+    <p class="p-quote">
+      "BHFMS proved that technology can bring structure and trust to everyday living by connecting
+      people and places through critical design."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

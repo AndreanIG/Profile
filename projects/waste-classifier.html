@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Recycling Waste Classification | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Deep Learning · Data Engineering · Domain Generalisation</p>
+    <h1>Smart Recycling: Waste Classification Pipeline</h1>
+    <p class="p-sub">A computer-vision system that sorts household waste photos into Australia's three-bin scheme, with augmentation, pipeline profiling, and robustness testing on out-of-domain images.</p>
+  </header>
+
+  <main class="p-body">
+
+    <h2>Problem &amp; Dataset</h2>
+    <ul>
+      <li><strong>Task:</strong> image to Red (general), Green (organics), or Yellow (recyclables) to help reduce recycling contamination.</li>
+      <li><strong>Dataset:</strong> RealWaste (Kaggle), remapped from material classes into 3 bin categories.</li>
+      <li><strong>Split:</strong> roughly 80/10/10 train/val/test after regrouping images into bin folders.</li>
+    </ul>
+
+    <img class="p-hero-img" src="../assets/img/waste-train.png" alt="Training dataset distribution and sample images" />
+    <p class="p-caption">Sample images and distribution from the training dataset.</p>
+
+    <h2>Approach</h2>
+    <ul>
+      <li><strong>Baseline model:</strong> a small CNN (WasteNet) with CrossEntropy, Adam, and 50 epochs, tracking Accuracy, F1, Recall, and Precision.</li>
+      <li><strong>Data augmentation:</strong> resize, random flips/rotation, colour jitter, and ImageNet-style normalisation applied to the training set only.</li>
+      <li><strong>Profiling:</strong> compared plain vs. augmented pipelines, found the CPU transforms were the bottleneck, and sped things up with parallel data loading.</li>
+      <li><strong>Equal-time study:</strong> trained plain and augmented models under the same one-hour budget to compare generalisation.</li>
+      <li><strong>Generalisation (D-task):</strong> collected a fresh test set from phones and the web, then built an improved CNN with BatchNorm, Dropout, and pooling tuning.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <table class="p-table">
+      <thead>
+        <tr><th>Setup</th><th>Test Acc</th><th>F1</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Baseline (no augmentation)</td><td>69.5%</td><td>0.44</td><td>Reference</td></tr>
+        <tr><td>With augmentation (equal time)</td><td>70.6%</td><td>0.47</td><td>Better recall/F1</td></tr>
+        <tr><td>Improved (BN/Dropout/Pooling)</td><td><strong>82.98%</strong></td><td>0.71</td><td>On original test set</td></tr>
+        <tr><td>New domain, old model</td><td>~55%</td><td>-</td><td>Phone/web images</td></tr>
+        <tr><td>New domain, improved model</td><td>~70%</td><td>-</td><td>Robust, higher F1</td></tr>
+      </tbody>
+    </table>
+
+    <img class="p-hero-img" src="../assets/img/waste-plain.png" alt="Baseline model training results" />
+    <p class="p-caption">Baseline (plain) model results on the validation set.</p>
+
+    <h2>What I Learned</h2>
+    <ul>
+      <li>Balanced recall and F1 matter more than raw accuracy for waste sorting, since missing positives is costly.</li>
+      <li>Augmentation helps generalisation but must be profiled and tuned; parallel data loading reduced pipeline time roughly 5-6x.</li>
+      <li>Architectural tweaks (BatchNorm, Dropout, Pooling) significantly improved robustness across domains.</li>
+    </ul>
+
+    <div class="p-stack">
+      <span>PyTorch</span><span>TorchVision</span><span>TensorBoard</span><span>PyTorch Profiler</span><span>scikit-learn</span>
+    </div>
+
+    <p class="p-quote">
+      "It shows how data and design can work together to make sustainability practical, one correctly sorted bin at a time."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

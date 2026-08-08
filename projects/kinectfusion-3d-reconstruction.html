@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KinectFusion-Style 3D Reconstruction | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">3D Computer Vision · OpenGL · CUDA · Kinect</p>
+    <h1>KinectFusion-Style 3D Reconstruction</h1>
+    <p class="p-sub">A GPU-accelerated system that reconstructs a room as a 3D mesh in real time from a moving Kinect depth camera, with live tracking overlays and head-pose estimation.</p>
+  </header>
+
+  <main class="p-body">
+
+    <h2>Project</h2>
+    <p>
+      This project implements a real-time 3D reconstruction pipeline in the spirit of the classic
+      KinectFusion paper. A Microsoft Kinect streams depth and RGB frames while the system fuses
+      them into a volumetric model that is displayed as a live 3D mesh. It includes real-time
+      tracking visualization, a point cloud display, and head-pose estimation using the RGB stream.
+    </p>
+
+    <h2>How It Works</h2>
+    <ul>
+      <li>Kinect depth and RGB streams are captured and aligned.</li>
+      <li>Depth maps are fused into a volumetric Truncated Signed Distance Function (TSDF) model.</li>
+      <li>The fused volume is raycast to a live surface mesh for display.</li>
+      <li>Tracking is visualized in real time with camera trajectory overlays.</li>
+      <li>Head-pose estimation runs on the RGB feed using OpenCV's built-in detectors.</li>
+    </ul>
+
+    <div class="p-img-grid">
+      <img src="../assets/img/fr1-room-1.png" alt="Room reconstruction view showing the volumetric mesh from camera 1" />
+      <img src="../assets/img/fr1-room-2.png" alt="Alternate room reconstruction view from camera 2" />
+    </div>
+    <p class="p-caption">Live room reconstruction from two viewpoints while scanning with the Kinect.</p>
+
+    <div class="p-img-grid">
+      <img src="../assets/img/fr1-rpy-1.png" alt="Head pose estimation showing roll, pitch and yaw values" />
+      <img src="../assets/img/fr1-rpy-2.png" alt="Head pose estimation on a second frame with different pose values" />
+    </div>
+    <p class="p-caption">Head-pose estimation (roll, pitch, yaw) running on the RGB stream.</p>
+
+    <h2>Tech Stack</h2>
+    <div class="p-stack">
+      <span>C++</span><span>OpenGL</span><span>CUDA</span><span>Kinect SDK</span><span>OpenCV</span>
+    </div>
+
+    <h2>Key Learnings</h2>
+    <ul>
+      <li>Volumetric fusion and raycasting are the heart of modern real-time reconstruction.</li>
+      <li>GPU acceleration is essential for real-time performance; even simple CUDA kernels change everything.</li>
+      <li>Aligning depth and RGB streams reveals how much engineering lives between sensor and model.</li>
+    </ul>
+
+    <p class="p-quote">
+      "Reconstructing a room from a camera is like solving a puzzle where each frame adds another clue."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

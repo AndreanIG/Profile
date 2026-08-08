@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fingerprint Detection | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Industry · Computer Vision · Telkom AI Platform</p>
+    <h1>Fingerprint Detection</h1>
+    <p class="p-sub">Automated fingerprint classification and segmentation using Vision Transformers and Detectron2, part of Telkom Indonesia's AI platform for workforce management and security.</p>
+  </header>
+
+  <main class="p-body">
+
+    <img class="p-hero-img" src="../assets/img/fingerprint.png" alt="Public domain example of fingerprint ridge patterns" />
+    <p class="p-caption">Public domain example of fingerprint ridge patterns (arches, loops, whorls). Telkom dataset images remain private.</p>
+
+    <h2>Problem</h2>
+    <p>
+      Manual fingerprint validation is inefficient and error-prone at Telkom's scale. The project
+      aimed to automate the full analysis of fingerprint images:
+    </p>
+    <ul>
+      <li>Classify fingerprint images into parent and subclass categories (pattern type).</li>
+      <li>Detect swirl direction (left/right) for more granular detail classification.</li>
+      <li>Segment key features (delta and core) and count ridges with automated instance segmentation.</li>
+    </ul>
+
+    <h2>My Contribution</h2>
+    <ul>
+      <li><strong>Requirement analysis:</strong> clarified objectives and evolving criteria with the supervisor and previous contributors.</li>
+      <li><strong>Model development:</strong> built a multi-stage pipeline:
+        <ul>
+          <li>Parent and subclass classification with a SWIN Transformer (multi-class).</li>
+          <li>Detail class (swirl direction) with SWIN binary classification.</li>
+          <li>Instance segmentation with Detectron2 to locate delta and core features.</li>
+          <li>Ridge-counting algorithms computed from the segmented images.</li>
+        </ul>
+      </li>
+      <li><strong>Data handling:</strong> tackled imbalanced datasets and noisy labels with advanced sampling and regular feedback cycles.</li>
+      <li><strong>Research &amp; upskilling:</strong> deepened knowledge of Vision Transformers (ViT, SWIN) and modern CV libraries (PyTorch, Detectron2), iterating on hyperparameters to fight overfitting.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Delivered a working prototype for fingerprint detection and classification meeting the supervisor's accuracy and segmentation requirements.</li>
+      <li>Automated the multi-stage processing pipeline, enabling future scalability for workforce management and security systems.</li>
+      <li>Built strong troubleshooting skills for complex, real-world AI problems such as imbalanced data and model instability.</li>
+    </ul>
+
+    <h2>Key Learnings</h2>
+    <ul>
+      <li>Practical experience with state-of-the-art vision architectures (SWIN, ViT) in production-like environments.</li>
+      <li>Iterative problem solving: revising model designs and seeking alternatives through technical setbacks.</li>
+      <li>Stakeholder communication: constant engagement with supervisors and users to stay aligned on objectives.</li>
+    </ul>
+
+    <p class="p-quote">
+      "Every pattern, human or data, reveals something unique when you learn to look closely."
+    </p>
+
+    <div class="p-links">
+      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>

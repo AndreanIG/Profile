@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCR to Braille Unicode: Best Research Paper | Andrean Ignasius</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/project.css" />
+</head>
+<body>
+
+  <nav class="p-nav">
+    <a href="../index.html" class="p-logo">AI<span>.</span></a>
+    <a href="../index.html#work" class="p-back">← Back to projects</a>
+  </nav>
+
+  <header class="p-hero">
+    <p class="p-tag">Published Paper · OCR · Computer Vision · Best Research Paper Award</p>
+    <h1>Image Pre-Processing Effect on OCR's Performance for Image Conversion to Braille Unicode</h1>
+    <p class="p-sub">An award-winning study on how image pre-processing pipelines affect OCR accuracy when converting printed text into Braille Unicode for visually impaired readers.</p>
+  </header>
+
+  <main class="p-body">
+
+    <h2>Paper</h2>
+    <p>
+      Ignasius, A., Chandra, J. C., Oscadinata, R., &amp; Suhartono, D. (2023).
+      <em>Image Pre-Processing Effect on OCR's Performance for Image Conversion to Braille Unicode.</em>
+      ICCSCI, Procedia Computer Science, vol. 227, pp. 922–931. Elsevier.
+      DOI: <a href="https://dl.acm.org/doi/10.1016/j.procs.2023.10.599" target="_blank" rel="noopener">10.1016/j.procs.2023.10.599</a>.
+    </p>
+
+    <h2>Problem</h2>
+    <p>
+      Braille remains the primary reading medium for many visually impaired people, but converting
+      printed material into Braille is slow and labour-intensive. Automating the conversion with OCR
+      is promising, yet OCR is notoriously sensitive to image quality. This research measured exactly
+      which pre-processing techniques make text-to-Braille conversion more accurate.
+    </p>
+
+    <h2>Approach</h2>
+    <ul>
+      <li><strong>Pipeline:</strong> compared combinations of grayscale conversion, noise reduction, thresholding/binarization, and skew correction before running OCR.</li>
+      <li><strong>Engine:</strong> used Tesseract OCR to recognise scanned text and map recognised characters to Braille Unicode.</li>
+      <li><strong>Evaluation:</strong> measured recognition accuracy across multiple pre-processing configurations on a dataset of scanned text images.</li>
+    </ul>
+
+    <h2>Results</h2>
+    <ul>
+      <li>Identified the combination of filtering and thresholding steps that maximises OCR precision.</li>
+      <li>Demonstrated that specific pre-processing choices significantly improve the reliability of Braille Unicode generation.</li>
+      <li>Presented the findings at ICCSCI and received the <strong>Best Research Paper Award</strong>.</li>
+    </ul>
+
+    <h2>Why It Matters</h2>
+    <p>
+      Small computational choices can make a real difference in accessibility technology. Improving
+      OCR for Braille conversion helps more people read, learn, and communicate independently, and
+      this research shaped how I approach detail-oriented, user-centred ML work.
+    </p>
+
+    <h2>Tech Stack</h2>
+    <div class="p-stack">
+      <span>Python</span><span>OpenCV</span><span>Tesseract OCR</span><span>Braille Unicode</span><span>Image Pre-Processing</span>
+    </div>
+
+    <p class="p-quote">
+      "The smallest improvements in code can open the biggest doors to accessibility."
+    </p>
+
+    <div class="p-links">
+      <a href="https://dl.acm.org/doi/10.1016/j.procs.2023.10.599" target="_blank" rel="noopener" class="p-btn-primary">Read on ACM Digital Library ↗</a>
+      <a href="https://www.sciencedirect.com/science/article/pii/S1877050923017660" target="_blank" rel="noopener" class="p-btn-ghost">ScienceDirect ↗</a>
+      <a href="https://www.researchgate.net/publication/375921327_Image_Pre-Processing_Effect_on_OCR's_Performance_for_Image_Conversion_to_Braille_Unicode" target="_blank" rel="noopener" class="p-btn-ghost">ResearchGate ↗</a>
+      <a href="../index.html#work" class="p-btn-ghost">Back to all projects</a>
+    </div>
+  </main>
+
+  <footer class="p-footer">© 2026 Andrean Ignasius · Data Scientist</footer>
+</body>
+</html>
