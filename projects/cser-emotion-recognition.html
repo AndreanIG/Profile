@@ -14,11 +14,11 @@
 
   <nav class="p-nav">
     <a href="../index.html" class="p-logo">AI<span>.</span></a>
-    <a href="../index.html#work" class="p-back">← Back to projects</a>
+    <button class="p-back" onclick="if(window.parent && window.parent !== window){window.parent.postMessage('close-project','*');} else {window.location.href='../index.html#work';}" type="button">← Back</button>
   </nav>
 
   <header class="p-hero">
-    <p class="p-tag">Research · IEEE Transactions on Multimedia · Under review</p>
+    <p class="p-tag">Research · Research Paper</p>
     <h1>CSER: Context-Sensitive Emotion Recognition Framework</h1>
     <p class="p-sub">A multimodal system that fuses Vision Transformers and Vision-Language Models to understand human emotion through context, not just faces.</p>
   </header>
@@ -78,9 +78,9 @@
 
     <h3>Citation</h3>
     <p>
-      Ignasius, A., Selvarajah, T., Rajasegarar, S., &amp; Yearwood, J. (2025).
+      Ignasius, A., Selvarajah, T., Rajasegarar, S., &amp; Yearwood, J.
       <em>CSER: Context-Sensitive Emotion Recognition Framework using Visual and Textual Features.</em>
-      IEEE Transactions on Multimedia (Under Review).
+      Research Paper.
     </p>
 
     <div class="p-stack">
@@ -93,7 +93,7 @@
     </p>
 
     <div class="p-links">
-      <a href="../index.html#work" class="p-btn-primary">Back to all projects</a>
+      <button class="p-btn-primary" onclick="if(window.parent && window.parent !== window){window.parent.postMessage('close-project','*');} else {window.location.href='../index.html#work';}" type="button">Back to all projects</button>
     </div>
   </main>
 

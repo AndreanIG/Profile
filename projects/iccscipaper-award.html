@@ -14,13 +14,13 @@
 
   <nav class="p-nav">
     <a href="../index.html" class="p-logo">AI<span>.</span></a>
-    <a href="../index.html#work" class="p-back">← Back to projects</a>
+    <button class="p-back" onclick="if(window.parent && window.parent !== window){window.parent.postMessage('close-project','*');} else {window.location.href='../index.html#work';}" type="button">← Back</button>
   </nav>
 
   <header class="p-hero">
-    <p class="p-tag">Published Paper · OCR · Computer Vision · Best Research Paper Award</p>
+    <p class="p-tag">Research Paper · OCR · Computer Vision</p>
     <h1>Image Pre-Processing Effect on OCR's Performance for Image Conversion to Braille Unicode</h1>
-    <p class="p-sub">An award-winning study on how image pre-processing pipelines affect OCR accuracy when converting printed text into Braille Unicode for visually impaired readers.</p>
+    <p class="p-sub">A study on how image pre-processing pipelines affect OCR accuracy when converting printed text into Braille Unicode for visually impaired readers.</p>
   </header>
 
   <main class="p-body">
@@ -52,7 +52,7 @@
     <ul>
       <li>Identified the combination of filtering and thresholding steps that maximises OCR precision.</li>
       <li>Demonstrated that specific pre-processing choices significantly improve the reliability of Braille Unicode generation.</li>
-      <li>Presented the findings at ICCSCI and received the <strong>Best Research Paper Award</strong>.</li>
+      <li>Presented the findings at ICCSCI and published in Procedia Computer Science (Elsevier).</li>
     </ul>
 
     <h2>Why It Matters</h2>
@@ -75,7 +75,7 @@
       <a href="https://dl.acm.org/doi/10.1016/j.procs.2023.10.599" target="_blank" rel="noopener" class="p-btn-primary">Read on ACM Digital Library ↗</a>
       <a href="https://www.sciencedirect.com/science/article/pii/S1877050923017660" target="_blank" rel="noopener" class="p-btn-ghost">ScienceDirect ↗</a>
       <a href="https://www.researchgate.net/publication/375921327_Image_Pre-Processing_Effect_on_OCR's_Performance_for_Image_Conversion_to_Braille_Unicode" target="_blank" rel="noopener" class="p-btn-ghost">ResearchGate ↗</a>
-      <a href="../index.html#work" class="p-btn-ghost">Back to all projects</a>
+      <button class="p-btn-ghost" onclick="if(window.parent && window.parent !== window){window.parent.postMessage('close-project','*');} else {window.location.href='../index.html#work';}" type="button">Back to all projects</button>
     </div>
   </main>
 

@@ -7,9 +7,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 40px;
-  background: rgba(10, 10, 15, 0.82);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(10, 10, 15, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .p-logo {
@@ -26,11 +26,15 @@
 .p-back {
   color: var(--text-dim);
   font-size: 0.9rem;
+  background: none;
+  border: 0;
+  font-family: var(--font-body);
+  cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .p-back:hover {
-  color: var(--accent-2);
+  color: #3fb950;
 }
 
 .p-hero {
@@ -44,7 +48,11 @@
   font-size: 0.82rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--accent-2);
+  background: linear-gradient(90deg, #238636, #3fb950);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   margin-bottom: 16px;
 }
 
@@ -80,7 +88,11 @@
   font-family: var(--font-head);
   font-size: 1.1rem;
   margin: 26px 0 10px;
-  color: var(--accent-2);
+  background: linear-gradient(90deg, #238636, #3fb950);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .p-body p {
@@ -112,7 +124,7 @@
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: #3fb950;
 }
 
 .p-hero-img {
@@ -180,8 +192,12 @@
   padding: 12px 14px;
   font-family: var(--font-head);
   font-weight: 600;
-  color: var(--accent-2);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(90deg, #238636, #3fb950);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  border-bottom: 1px solid var(--border);
 }
 
 .p-table td {
@@ -204,14 +220,14 @@
 .p-stack span {
   font-size: 0.78rem;
   padding: 6px 14px;
-  border-radius: 30px;
+  border-radius: 4px;
   background: var(--panel);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--border);
   color: var(--text-dim);
 }
 
 .p-quote {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid #238636;
   padding: 4px 0 4px 20px;
   margin: 40px 0 0;
   color: var(--text-dim);
@@ -226,7 +242,8 @@
   margin: 28px 0 8px;
 }
 
-.p-links a {
+.p-links a,
+.p-links button {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 60px;
@@ -235,30 +252,36 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
 .p-links .p-btn-primary {
-  background: var(--gradient);
+  background: linear-gradient(90deg, #238636, #2ea043);
   color: #fff;
+  border: 1px solid #2ea043;
 }
 
 .p-links .p-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(124, 92, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(46, 160, 67, 0.25);
 }
 
 .p-links .p-btn-ghost {
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid var(--border);
   color: var(--text);
+  background: #161b22;
 }
 
 .p-links .p-btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-3px);
+  background: #1f242d;
+  border-color: rgba(63, 185, 80, 0.7);
+  transform: translateY(-2px);
 }
 
 .p-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
   padding: 28px 24px;
   max-width: 860px;
   margin: 0 auto;

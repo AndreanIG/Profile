@@ -25,6 +25,8 @@
           <a href="#about">About</a>
           <a href="#work">Projects</a>
           <a href="#career">Career</a>
+          <a href="#career">Career</a>
+          <a href="#career">Career</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
         </div>
@@ -81,7 +83,6 @@
           <h2 class="phase-title">Pushing the <span class="gradient-text">frontier</span></h2>
           <p class="phase-sub">
             CSER fuses Vision Transformers and vision-language models for context-sensitive emotion recognition.
-            Currently under review at IEEE Transactions on Multimedia.
           </p>
           <p class="phase-stat"><span class="stat-num">40.5%</span> mAP (EMOTIC) · <span class="stat-num">54.3%</span> mAP (HECO) · <span class="stat-num">SOTA</span> outperformed</p>
           <div class="hero-actions">
@@ -109,23 +110,42 @@
       <p class="section-tag">01 · About</p>
       <h2 class="section-title">Turning messy data into <span class="gradient-text">meaning</span></h2>
     </div>
+    <div class="notebook-cell reveal">
+      <div class="notebook-cell-header">
+        <span class="notebook-prompt">In [2]:</span>
+        <span>about.py</span>
+      </div>
+      <div class="notebook-cell-content"><span class="notebook-keyword">class</span> <span class="notebook-class">DataScientist</span>:
+    <span class="notebook-keyword">def</span> <span class="notebook-function">__init__</span>(self):
+        self.name = <span class="notebook-string">"Andrean Ignasius"</span>
+        self.role = <span class="notebook-string">"Data Scientist &amp; AI Engineer"</span>
+        self.location = <span class="notebook-string">"Melbourne, VIC, AU"</span>
+        self.education = <span class="notebook-string">"MDS (High Distinction) · Deakin University"</span>
+        self.languages = [<span class="notebook-string">"EN"</span>, <span class="notebook-string">"ID"</span>, <span class="notebook-string">"MY"</span>, <span class="notebook-string">"JA"</span>]
+
+    <span class="notebook-keyword">def</span> <span class="notebook-function">summary</span>(self):
+        <span class="notebook-keyword">return</span> (
+            <span class="notebook-string">"Computer Vision, scalable ML pipelines, and applied AI. "</span>
+            <span class="notebook-string">"Bridging research and production with practical solutions."</span>
+        )
+
+me = DataScientist()
+<span class="notebook-function">print</span>(me.summary())</div>
+      <div class="notebook-cell-output">Computer Vision, scalable ML pipelines, and applied AI. Bridging research and production with practical solutions.</div>
+    </div>
     <div class="about-grid">
       <div class="about-text reveal">
-        <p>
-          I'm <strong>Andrean Ignasius</strong>, a Data Scientist and Software Engineer based in
-          Melbourne, Australia. I love turning messy data into smart, useful, and sometimes even
-          beautiful things.
-        </p>
-        <p>
-          With a background in Computer Science and a Master's in Data Science (High Distinction,
-          Deakin University), I've built computer-vision systems at Telkom Indonesia including
-          face mapping, image validation, and fingerprint detection, plus research in multimodal
-          and vision-language models.
-        </p>
-        <p>
-          I translate research ideas into practical, user-centered solutions through UX-driven
-          design, and I'm always exploring generative AI and new vision-language models.
-        </p>
+        <div class="notebook-cell">
+          <div class="notebook-cell-header">
+            <span class="notebook-prompt">In [3]:</span>
+            <span>background.md</span>
+          </div>
+          <div class="notebook-cell-content"><span class="notebook-keyword">#</span> Background
+- Built CV systems at Telkom Indonesia (face mapping, image validation, fingerprint detection)
+- Research in multimodal &amp; vision-language models
+- Focused on translating ideas to user-centered solutions
+- Exploring generative AI &amp; VLMs</div>
+        </div>
         <div class="about-meta">
           <div class="meta-item">
             <span class="meta-label">Based in</span>
@@ -152,108 +172,123 @@
   <!-- PROJECTS -->
   <section class="section work" id="work">
     <div class="section-head reveal">
-      <p class="section-tag">02 · Selected Work</p>
-      <h2 class="section-title">Projects I'm <span class="gradient-text">proud of</span></h2>
+      <p class="section-tag">04 · Certifications &amp; Awards</p>
+      <h2 class="section-title">Certifications &amp; <span class="gradient-text">Awards</span></h2>
+    </div>
+    <div class="notebook-cell reveal">
+      <div class="notebook-cell-header">
+        <span class="notebook-prompt">In [1]:</span>
+        <span>projects_summary.py</span>
+      </div>
+      <div class="notebook-cell-content"><span class="notebook-comment"># Concise view of selected work</span>
+<span class="notebook-keyword">projects</span> = [
+  <span class="notebook-string">"CSER"</span>, <span class="notebook-string">"Grape Disease"</span>, <span class="notebook-string">"Smart Recycling"</span>,
+  <span class="notebook-string">"Face Mapping"</span>, <span class="notebook-string">"Fingerprint Detection"</span>, <span class="notebook-string">"DIT IndiHome"</span>,
+  <span class="notebook-string">"BHFMS"</span>, <span class="notebook-string">"NYC Dashboards"</span>, <span class="notebook-string">"KinectFusion"</span>,
+  <span class="notebook-string">"Temple Runner"</span>, <span class="notebook-string">"OCR→Braille"</span>
+]
+<span class="notebook-function">print</span>(<span class="notebook-string">"Projects: "</span>, <span class="notebook-function">len</span>(projects))</div>
+      <div class="notebook-cell-output">Projects: 11</div>
     </div>
     <div class="work-grid">
 
-      <article class="project reveal">
-        <a href="projects/cser-emotion-recognition.html" class="project-info" aria-label="CSER, Context-Sensitive Emotion Recognition">
-          <span class="project-year">Research · IEEE under review</span>
+      <article class="project reveal" data-project="cser-emotion-recognition">
+        <button class="project-info" aria-label="CSER, Context-Sensitive Emotion Recognition">
+          <span class="project-year">Research · Research Paper</span>
           <h3>CSER Emotion Recognition</h3>
-          <p>Multimodal framework fusing ViT, LLaVA, and BLIP embeddings with multi-head attention. 40.5% mAP (EMOTIC), 54.3% mAP (HECO), outperforming SOTA.</p>
+          <p>Multimodal ViT + VLM fusion for context-aware emotion recognition. 40.5% mAP (EMOTIC), 54.3% mAP (HECO).</p>
           <div class="project-tags"><span>ViT</span><span>LLaVA</span><span>BLIP</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/grape-disease.html" class="project-info" aria-label="Grape Disease Classification">
+      <article class="project reveal" data-project="grape-disease">
+        <button class="project-info" aria-label="Grape Disease Classification">
           <span class="project-year">CV · Deep Learning</span>
           <h3>Grape Disease Classification</h3>
-          <p>VGG-16 feature extraction + XGBoost classifier for grape leaf diseases, deployed via Flask. 98.7% accuracy, beating pure CNN baselines (92-96%).</p>
+          <p>VGG-16 + XGBoost for grape leaf disease. 98.7% accuracy via Flask deployment.</p>
           <div class="project-tags"><span>VGG-16</span><span>XGBoost</span><span>Flask</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/waste-classifier.html" class="project-info" aria-label="Smart Recycling Waste Classification">
+      <article class="project reveal" data-project="waste-classifier">
+        <button class="project-info" aria-label="Smart Recycling Waste Classification">
           <span class="project-year">DL · Data Engineering</span>
           <h3>Smart Recycling Pipeline</h3>
-          <p>CNN waste-classifier for Australia's 3-bin scheme. Test accuracy up from 69.5% to 82.98% via augmentation, profiling, and domain-generalisation tuning.</p>
+          <p>CNN for Australia's 3-bin scheme. Boosted accuracy from 69.5% to 82.98% with augmentation and tuning.</p>
           <div class="project-tags"><span>PyTorch</span><span>CNN</span><span>Profiling</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/face-mapping.html" class="project-info" aria-label="Face Mapping API, Telkom">
+      <article class="project reveal" data-project="face-mapping">
+        <button class="project-info" aria-label="Face Mapping API, Telkom">
           <span class="project-year">Industry · Computer Vision</span>
           <h3>Face Mapping API</h3>
-          <p>Automated employee face recognition at Telkom Indonesia. 80% accuracy across 1,000 faces from messy real-world photos (Zoom + on-site), via DLIB and OpenCV DNN.</p>
+          <p>Telkom employee face recognition across 1,000+ faces. 80% accuracy with DLIB/OpenCV DNN.</p>
           <div class="project-tags"><span>DLIB</span><span>OpenCV</span><span>Telkom</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/fingerprint-detection.html" class="project-info" aria-label="Fingerprint Detection, Telkom">
+      <article class="project reveal" data-project="fingerprint-detection">
+        <button class="project-info" aria-label="Fingerprint Detection, Telkom">
           <span class="project-year">Industry · CV</span>
           <h3>Fingerprint Detection</h3>
-          <p>Multi-stage fingerprint classification and segmentation using SWIN Transformers and Detectron2. Parent/subclass, swirl direction, and delta/core detection.</p>
+          <p>SWIN + Detectron2 for fingerprint classification, segmentation and feature detection.</p>
           <div class="project-tags"><span>SWIN</span><span>Detectron2</span><span>PyTorch</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/dit-image-classification.html" class="project-info" aria-label="DIT IndiHome Image Classification">
+      <article class="project reveal" data-project="dit-image-classification">
+        <button class="project-info" aria-label="DIT IndiHome Image Classification">
           <span class="project-year">Industry · CV</span>
           <h3>DIT IndiHome Validation</h3>
-          <p>AI-powered validation of IndiHome installation photos at Telkom using SWIN Transformers. Multi-label, multi-class compliance checking against business rules.</p>
+          <p>SWIN Transformers for multi-label validation of IndiHome installation photos at Telkom.</p>
           <div class="project-tags"><span>SWIN</span><span>PyTorch</span><span>Telkom</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/bhfms.html" class="project-info" aria-label="BHFMS, Boarding House Finder">
+      <article class="project reveal" data-project="bhfms">
+        <button class="project-info" aria-label="BHFMS, Boarding House Finder">
           <span class="project-year">Thesis · Full-stack</span>
           <h3>BHFMS Boarding House Finder</h3>
-          <p>Full VILT-stack marketplace and operations hub with Haversine distance search and Bayesian-average ratings for fair property rankings.</p>
+          <p>VILT-stack marketplace with Haversine search and Bayesian-average property rankings.</p>
           <div class="project-tags"><span>Laravel</span><span>Vue.js</span><span>SQL</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/tableau-powerbi-dashboard.html" class="project-info" aria-label="NYC Flight Weather Dashboard">
+      <article class="project reveal" data-project="tableau-powerbi-dashboard">
+        <button class="project-info" aria-label="NYC Flight Weather Dashboard">
           <span class="project-year">BI · Analytics</span>
           <h3>NYC Flight Weather Dashboard</h3>
-          <p>Parallel Tableau and Power BI dashboards analysing wind and precipitation across 3 NYC airports. All transformations done natively in-tool.</p>
+          <p>Tableau & Power BI dashboards analysing NYC airport weather and flight impact.</p>
           <div class="project-tags"><span>Tableau</span><span>Power BI</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/kinectfusion-3d-reconstruction.html" class="project-info" aria-label="3D Reconstruction with KinectFusion">
+      <article class="project reveal" data-project="kinectfusion-3d-reconstruction">
+        <button class="project-info" aria-label="3D Reconstruction with KinectFusion">
           <span class="project-year">3D Vision · Robotics</span>
           <h3>3D Reconstruction with KinectFusion</h3>
-          <p>Real-time dense mapping experiments with RGB-D data from the TUM dataset. Measured FPS and RMSE across simple and complex indoor scenes.</p>
+          <p>RGB-D dense mapping with KinectFusion on TUM dataset; measured FPS and RMSE.</p>
           <div class="project-tags"><span>RGB-D</span><span>SLAM</span><span>Open3D</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/temple-runner.html" class="project-info" aria-label="Temple Runner Game">
+      <article class="project reveal" data-project="temple-runner">
+        <button class="project-info" aria-label="Temple Runner Game">
           <span class="project-year">Game Dev · Unity</span>
           <h3>Temple Runner Game</h3>
-          <p>3D endless runner with lane switching, shaders, baked lighting, particles, and a menu UI. Built at Kaunas University of Technology.</p>
+          <p>3D endless runner built in Unity with shaders, lighting, particles and UI.</p>
           <div class="project-tags"><span>Unity</span><span>C#</span><span>Shaders</span></div>
-        </a>
+        </button>
       </article>
 
-      <article class="project reveal">
-        <a href="projects/iccscipaper-award.html" class="project-info" aria-label="ICCSCI 2021 Best Research Paper">
-          <span class="project-year">Research · Accessibility</span>
-          <h3>ICCSCI 2021 Best Paper</h3>
-          <p>Best Research Paper Award for a study on how image pre-processing affects OCR accuracy in converting text to Braille Unicode. Published in Procedia CS.</p>
+      <article class="project reveal" data-project="iccscipaper-award">
+        <button class="project-info" aria-label="Research on OCR to Braille">
+          <span class="project-year">Research</span>
+          <h3>OCR to Braille Unicode</h3>
+          <p>Image pre-processing effects on OCR accuracy for Braille conversion. Published in Procedia CS.</p>
           <div class="project-tags"><span>OCR</span><span>Tesseract</span><span>Elsevier</span></div>
-        </a>
+        </button>
       </article>
 
     </div>
@@ -334,14 +369,22 @@
     </div>
 
     <div class="certs reveal">
-      <h3 class="certs-title">Certifications &amp; Awards</h3>
-      <div class="certs-list">
-        <span>Azure AI Engineer Associate (AI-102)</span>
-        <span>Azure AI Fundamentals (AI-900)</span>
-        <span>Best Research Paper, ICCSCI 2021</span>
-        <span>Google AI: Explore ML</span>
-        <span>Published, Procedia CS (Elsevier)</span>
-        <span>Finalist, SGU App Competition</span>
+      <div class="section-head" style="margin-bottom: 32px;">
+        <p class="section-tag">04 · Certifications &amp; Awards</p>
+        <h2 class="section-title">Certifications &amp; <span class="gradient-text">Awards</span></h2>
+      </div>
+      <div class="notebook-cell">
+        <div class="notebook-cell-header">
+          <span class="notebook-prompt">In [5]:</span>
+          <span>certifications_awards.json</span>
+        </div>
+        <div class="notebook-cell-content">[
+  {<span class="notebook-string">"name"</span>: <span class="notebook-string">"Azure AI Engineer Associate (AI-102)"</span>, <span class="notebook-string">"type"</span>: <span class="notebook-string">"certification"</span>},
+  {<span class="notebook-string">"name"</span>: <span class="notebook-string">"Azure AI Fundamentals (AI-900)"</span>, <span class="notebook-string">"type"</span>: <span class="notebook-string">"certification"</span>},
+  {<span class="notebook-string">"name"</span>: <span class="notebook-string">"Google AI: Explore ML"</span>, <span class="notebook-string">"type"</span>: <span class="notebook-string">"certification"</span>},
+  {<span class="notebook-string">"name"</span>: <span class="notebook-string">"Published, Procedia CS (Elsevier)"</span>, <span class="notebook-string">"type"</span>: <span class="notebook-string">"publication"</span>},
+  {<span class="notebook-string">"name"</span>: <span class="notebook-string">"Finalist, SGU App Competition"</span>, <span class="notebook-string">"type"</span>: <span class="notebook-string">"award"</span>}
+]</div>
       </div>
     </div>
   </section>
@@ -349,7 +392,7 @@
   <!-- SKILLS -->
   <section class="section skills" id="skills">
     <div class="section-head reveal">
-      <p class="section-tag">04 · Skills</p>
+      <p class="section-tag">05 · Skills</p>
       <h2 class="section-title">Tools of the <span class="gradient-text">trade</span></h2>
     </div>
     <div class="skills-grid reveal">
@@ -407,9 +450,24 @@
   <!-- CONTACT -->
   <section class="section contact" id="contact">
     <div class="contact-inner reveal">
-      <p class="section-tag">05 · Contact</p>
+      <p class="section-tag">06 · Contact</p>
       <h2 class="contact-title">Let's build something <span class="gradient-text">with data</span></h2>
+      <div class="notebook-cell">
+        <div class="notebook-cell-header">
+          <span class="notebook-prompt">In [4]:</span>
+          <span>contact.json</span>
+        </div>
+        <div class="notebook-cell-content">{
+  <span class="notebook-string">"email"</span>: <span class="notebook-string">"andrean.2000@gmail.com"</span>,
+  <span class="notebook-string">"github"</span>: <span class="notebook-string">"https://github.com/AndreanIG"</span>,
+  <span class="notebook-string">"linkedin"</span>: <span class="notebook-string">"https://www.linkedin.com/in/andrean-ignasius/"</span>
+}</div>
+      </div>
       <a href="mailto:andrean.2000@gmail.com" class="btn btn-primary contact-cta">andrean.2000@gmail.com</a>
+      <div class="contact-downloads">
+        <a href="assets/cv-andrean.pdf" download class="btn btn-ghost">Download Resume (PDF)</a>
+        <a href="assets/cv-andrean.json" download class="btn btn-ghost">Download Resume (JSON)</a>
+      </div>
       <div class="contact-socials">
         <a href="https://github.com/AndreanIG" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/andrean-ignasius/" target="_blank" rel="noopener">LinkedIn</a>
@@ -427,6 +485,15 @@
     <div class="loader-inner">
       <div class="loader-cube"></div>
       <p>Running models…</p>
+    </div>
+  </div>
+
+  <div id="project-modal" class="project-modal" aria-hidden="true">
+    <div class="project-modal-backdrop" data-close="true"></div>
+    <div class="project-modal-dialog" role="dialog" aria-modal="true" tabindex="-1">
+      <button class="project-modal-close" aria-label="Close project" data-close="true">×</button>
+      <button class="project-modal-back" aria-label="Back to projects">← Back</button>
+      <div class="project-modal-content" id="project-modal-content"></div>
     </div>
   </div>
 

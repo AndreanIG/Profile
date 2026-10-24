@@ -1,0 +1,51 @@
+{
+  "basics": {
+    "name": "Andrean Ignasius",
+    "label": "Data Scientist & AI Engineer",
+    "email": "andrean.2000@gmail.com",
+    "phone": "",
+    "url": "",
+    "summary": "Data Scientist and AI Engineer based in Melbourne, Australia. Builds and deploys ML systems from data to production, focused on computer vision, scalable pipelines, and applied AI.",
+    "location": {
+      "city": "Melbourne",
+      "region": "VIC",
+      "countryCode": "AU"
+    },
+    "profiles": [
+      {"network": "GitHub", "username": "AndreanIG", "url": "https://github.com/AndreanIG"},
+      {"network": "LinkedIn", "username": "andrean-ignasius", "url": "https://www.linkedin.com/in/andrean-ignasius/"}
+    ]
+  },
+  "work": [
+    {"name": "Prima PMI", "position": "UV Lamination & Foiling Specialist", "startDate": "2025-10", "endDate": "", "location": "Melbourne, Australia", "highlights": ["Promoted to sole operator of UV lamination and foiling line.", "Calibrate heat, speed, and feed; real-time troubleshooting."]},
+    {"name": "Camp Paws", "position": "Pet Sitter", "startDate": "2024-03", "endDate": "2025-07", "location": "Melbourne, Australia", "highlights": ["Managed pet care across multiple households."]},
+    {"name": "Telkom Indonesia", "position": "Data Scientist (Intern)", "startDate": "2023-11", "endDate": "2025-06", "location": "Jakarta, Indonesia", "highlights": ["Built face-mapping API (80% accuracy, 1000+ faces).", "Developed SWIN Transformer models for IndiHome validation and fingerprint detection.", "Improved ML pipeline accuracy by 5-6%."]}
+  ],
+  "education": [
+    {"institution": "Deakin University", "area": "Data Science (Professional)", "studyType": "Master", "startDate": "2023-11", "endDate": "2025-06", "score": "High Distinction"},
+    {"institution": "Bina Nusantara University", "area": "Computer Science (Global Class)", "studyType": "Bachelor", "startDate": "2019-08", "endDate": "2023-08", "score": "3.85/4.00"}
+  ],
+  "awards": [
+    {"title": "Research paper published", "date": "2023", "awarder": "Elsevier (Procedia CS)"},
+    {"title": "Exchange Program", "date": "2022", "awarder": "Kaunas University of Technology, Lithuania"}
+  ],
+  "skills": [
+    {"name": "Languages", "keywords": ["Python", "SQL", "R", "Java", "JavaScript", "PHP", "C#"]},
+    {"name": "ML/DL", "keywords": ["PyTorch", "TensorFlow", "Scikit-learn", "XGBoost", "OpenCV", "Detectron2"]},
+    {"name": "Data/BI", "keywords": ["Tableau", "Power BI", "Pandas", "NumPy"]},
+    {"name": "Cloud/DevOps", "keywords": ["Microsoft Azure", "Docker", "Jenkins", "MLOps"]},
+    {"name": "Web", "keywords": ["Vue", "Inertia", "Laravel", "Tailwind", "Flask"]},
+    {"name": "Tools", "keywords": ["Git", "VS Code", "Linux"]}
+  ],
+  "projects": [
+    {"name": "CSER Emotion Recognition", "description": "Multimodal ViT + VLM fusion for context-aware emotion recognition.", "highlights": ["40.5% mAP (EMOTIC)", "54.3% mAP (HECO)"]},
+    {"name": "Grape Disease Classification", "description": "VGG-16 + XGBoost with Flask deployment.", "highlights": ["98.7% accuracy"]},
+    {"name": "Smart Recycling Pipeline", "description": "CNN for Australia's 3-bin scheme.", "highlights": ["69.5% -> 82.98% accuracy"]}
+  ],
+  "languages": [
+    {"language": "English", "fluency": "Professional"},
+    {"language": "Indonesian", "fluency": "Native"},
+    {"language": "Malay", "fluency": "Professional"},
+    {"language": "Japanese", "fluency": "Conversational"}
+  ]
+}

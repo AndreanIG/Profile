@@ -337,11 +337,11 @@
     const ctx = c.getContext('2d');
     ctx.clearRect(0, 0, c.width, c.height);
     const grad = ctx.createLinearGradient(0, 0, c.width, 0);
-    grad.addColorStop(0, '#7c5cff');
-    grad.addColorStop(1, '#00d4ff');
-    ctx.shadowColor = 'rgba(124,92,255,0.85)';
-    ctx.shadowBlur = 36;
-    ctx.fillStyle = '#ffffff';
+    grad.addColorStop(0, '#2ea043');
+    grad.addColorStop(1, '#3fb950');
+    ctx.shadowColor = 'rgba(63,185,80,0.65)';
+    ctx.shadowBlur = 34;
+    ctx.fillStyle = '#e6fff0';
     box.draw(padX, padY);
     ctx.shadowBlur = 0;
     ctx.fillStyle = grad;
@@ -355,7 +355,8 @@
       transparent: true,
       opacity: 0,
       depthWrite: false,
-      blending: THREE.AdditiveBlending
+      blending: THREE.AdditiveBlending,
+      color: 0x3fb950
     });
     const sprite = new THREE.Sprite(mat);
     sprite.userData.aspect = c.width / c.height;
@@ -518,9 +519,9 @@
   const ePos = new Float32Array(edgePairs.length * 3);
   eGeo.setAttribute('position', new THREE.BufferAttribute(ePos, 3));
   const eMat = new THREE.LineBasicMaterial({
-    color: 0x7c5cff,
+    color: 0x3fb950,
     transparent: true,
-    opacity: 0.2,
+    opacity: 0.28,
     depthWrite: false
   });
   const edges = new THREE.LineSegments(eGeo, eMat);
@@ -528,16 +529,16 @@
 
   scene.add(netGroup);
 
-  /* Per-particle colour gradient by height (cyan to purple) */
+  /* Per-particle colour gradient by height (cyan to green) */
   let minY = Infinity, maxY = -Infinity;
   for (const p of targets) {
     if (p[1] < minY) minY = p[1];
     if (p[1] > maxY) maxY = p[1];
   }
-  const colA = new THREE.Color(0x22d3ee);
-  const colB = new THREE.Color(0x7c5cff);
+  const colA = new THREE.Color(0x3fb950);
+  const colB = new THREE.Color(0x2ea043);
   const formedColors = targets.map(p => colA.clone().lerp(colB, (p[1] - minY) / (maxY - minY)));
-  const dimColor = new THREE.Color(0x141a33);
+  const dimColor = new THREE.Color(0x101a13);
   const tmpCol = new THREE.Color();
 
   const delays = [], durs = [], phasesP = [];
@@ -561,7 +562,7 @@
   const aGeo = new THREE.BufferGeometry();
   aGeo.setAttribute('position', new THREE.BufferAttribute(aPos, 3));
   const aMat = new THREE.PointsMaterial({
-    color: 0xffffff,
+    color: 0x3fb950,
     size: 0.04,
     transparent: true,
     opacity: 0.35,
@@ -671,7 +672,7 @@
       ep.setXYZ(e + 1, pos.getX(j), pos.getY(j), pos.getZ(j));
     }
     ep.needsUpdate = true;
-    eMat.opacity = 0.06 + mix * 0.3;
+    eMat.opacity = 0.08 + mix * 0.32;
 
     netGroup.rotation.y += spd * dt;
     netGroup.rotation.x = Math.sin(t * 0.2) * 0.05;
@@ -680,13 +681,15 @@
     formulaSprites.forEach((spr, k) => {
       spr.material.opacity = k === idx ? 1 : 0;
       spr.position.y = spr.userData.baseY + Math.sin(t * 0.8 + k) * 0.2;
+      if (spr.material.color) {
+        spr.material.color.set(0x3fb950);
+      }
     });
 
-    /* Phase HTML: instant switch, only one phase visible at a time */
+    /* Phase HTML: smooth transition between phases */
     phases.forEach((el, k) => {
       const on = k === idx;
       el.classList.toggle('active', on);
-      el.style.pointerEvents = on ? 'auto' : 'none';
     });
 
     /* Progress indicator */
@@ -739,6 +742,63 @@
       links.classList.remove('open');
     })
   );
+})();
+
+/* ============ PROJECT MODALS ============ */
+(() => {
+  const modal = document.getElementById('project-modal');
+  const content = document.getElementById('project-modal-content');
+  const backBtn = document.querySelector('.project-modal-back');
+  const closeEls = document.querySelectorAll('[data-close="true"]');
+  if (!modal || !content) return;
+
+  const projectMap = {
+    'cser-emotion-recognition': 'projects/cser-emotion-recognition.html',
+    'grape-disease': 'projects/grape-disease.html',
+    'waste-classifier': 'projects/waste-classifier.html',
+    'face-mapping': 'projects/face-mapping.html',
+    'fingerprint-detection': 'projects/fingerprint-detection.html',
+    'dit-image-classification': 'projects/dit-image-classification.html',
+    'bhfms': 'projects/bhfms.html',
+    'tableau-powerbi-dashboard': 'projects/tableau-powerbi-dashboard.html',
+    'kinectfusion-3d-reconstruction': 'projects/kinectfusion-3d-reconstruction.html',
+    'temple-runner': 'projects/temple-runner.html',
+    'iccscipaper-award': 'projects/iccscipaper-award.html'
+  };
+
+  function openModal(key) {
+    const src = projectMap[key];
+    if (!src) return;
+    content.innerHTML = `<iframe src="${src}" title="Project details" loading="lazy"></iframe>`;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      content.innerHTML = '';
+    }, 250);
+  }
+
+  document.querySelectorAll('.project[data-project]').forEach((card) => {
+    card.querySelector('.project-info').addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(card.dataset.project);
+    });
+  });
+
+  closeEls.forEach((el) => el.addEventListener('click', closeModal));
+  if (backBtn) backBtn.addEventListener('click', closeModal);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+  });
+  window.addEventListener('message', (e) => {
+    if (e.data === 'close-project') closeModal();
+  });
 })();
 
 /* ============ SCROLL REVEAL ============ */
